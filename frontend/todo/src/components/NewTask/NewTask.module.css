@@ -1,0 +1,69 @@
+.NewTask {
+    width: 100%;
+}
+.NewTaskForm{
+    width: 100%;
+}
+.Field{
+    width: 100%;
+    min-width: 150px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 2px gray;
+    border-radius: 12px;
+    padding: 10px;
+    transition-timing-function: ease-in-out;
+    transition: 1s;
+}
+.Field:hover{
+    box-shadow: 0 2px 4px gray;
+}
+.Field:focus{
+    box-shadow: 0 4px 6px #4367df;
+}
+.Field::placeholder{
+    text-align: center;
+    color: gray;
+    opacity: 1;
+}
+.Title{
+
+}
+.Description{
+    height: 4rem;
+    resize: none;
+    box-sizing: border-box;
+}
+.Description::-webkit-scrollbar{
+    display: hidden;
+}
+.FieldsGroup{
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    justify-content: space-evenly;
+}
+.Group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.SubmitButton{
+    padding: 4px;
+    outline: none;
+    border: none;
+    height: 100%;
+    width: 40%;
+    min-width: 150px;
+    background-color: transparent;
+    box-shadow: 0 0 4px gray;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-timing-function: ease-in-out;
+    transition: 1s;
+}
+.SubmitButton:hover{
+    box-shadow: 0 2px 6px #4367df;
+    width: 60%;
+}

@@ -1,0 +1,9 @@
+.LandingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.TodoPageContainer {
+    width: 80%;
+    min-width: 500px;
+}
