@@ -1,0 +1,4 @@
+black
+flask-sqlalchemy
+pip-chill
+pytest
