@@ -6,4 +6,15 @@
 .TodoPageContainer {
     width: 80%;
     min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.NewTasksPage{
+    height: 180px;
+}
+.TaskListPage{
+    flex-grow: 0;
+    flex-shrink: 1;
+    height: (100% - 200px);
 }

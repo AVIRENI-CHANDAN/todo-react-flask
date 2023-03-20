@@ -35,10 +35,13 @@ class Todo(db.Model):
 # ----------------------------------------------------------------
 @app.route("/task", methods=["GET", "POST"])
 def todos():
+    print("RECEIVED /task REQUEST", request.method)
     if request.method == "GET":
+        print("RECEIVED /task GET REQUEST")
         todos = Todo.query.all()
         return jsonify([todo.to_dict() for todo in todos])
     elif request.method == "POST":
+        print("RECEIVED /task POST REQUEST")
         title = request.json.get("title")
         description = request.json.get("description")
         completed = request.json.get("completed", False)
@@ -50,12 +53,15 @@ def todos():
 
 @app.route("/task/<int:id>", methods=["GET", "PUT", "DELETE"])
 def todo_detail(id):
+    print(f"RECEIVED /task/{id} REQUEST", request.method)
     todo = Todo.query.filter_by(id=id).first_or_404()
     if request.method == "GET":
+        print(f"RECEIVED /task/{id} GET REQUEST")
         if todo is None:
             return jsonify({"error": "Todo not found"}), 404
         return jsonify(todo.to_dict()), 200
     elif request.method == "PUT":
+        print(f"RECEIVED /task/{id} PUT REQUEST")
         title = request.json.get("title")
         description = request.json.get("description")
         completed = request.json.get("completed")
@@ -65,6 +71,12 @@ def todo_detail(id):
         db.session.commit()
         return jsonify(todo.to_dict())
     elif request.method == "DELETE":
+        print(f"RECEIVED /task/{id} DELETE REQUEST")
         db.session.delete(todo)
         db.session.commit()
         return "", 204
+
+if __name__=="__main__":
+    with app.app_context():
+        db.create_all()
+        app.run(debug=True)

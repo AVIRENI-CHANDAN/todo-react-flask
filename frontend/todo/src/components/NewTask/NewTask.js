@@ -12,7 +12,37 @@ class NewTask extends React.Component {
     this.state = {
       title: "",
       description: "",
+      completed: false
     };
+  }
+  
+  handleNewTaskSubmit(e){
+    e.preventDefault();
+    const state = this.state;
+
+    fetch('http://127.0.0.1:5000/task', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: state.title,
+        description: state.description,
+        completed: state.completed
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          title:"",
+          description: "",
+          completed: false
+        })
+        console.log(this.state);
+      })
+      .catch(error => console.error(error));
+
   }
 
   handleChange(e) {
@@ -28,7 +58,7 @@ class NewTask extends React.Component {
             <textarea type="text" name="description" draggable="false" className={[styles.Field, styles.Description].join(' ')} placeholder={this.placeholder_description} value={this.state.description} onChange={(e) => this.handleChange(e)} />
           </div>
           <div className={styles.Group}>
-            <button type='submit' className={styles.SubmitButton}>{this.submit_form_label}</button>
+            <button type='submit' className={styles.SubmitButton} onClick={(e) => this.handleNewTaskSubmit(e)}>{this.submit_form_label}</button>
           </div>
         </form>
       </div>

@@ -7,7 +7,9 @@ import LandingPage from './components/LandingPage/LandingPage';
 class App extends React.Component {
     render() {
         return ( 
-            <LandingPage></LandingPage>
+            <div className="App">
+                <LandingPage></LandingPage>
+            </div>
         );
     }
 }

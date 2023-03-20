@@ -1,0 +1,74 @@
+.TaskCard {
+    min-height: 50px;
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px gray;
+    transition-timing-function: ease-in-out;
+    transition: 1s;
+    box-sizing: border-box;
+    margin: 5px 0;
+}
+
+.TaskCard:hover {
+    box-shadow: 0 4px 8px #4367df;
+    transition-timing-function: ease-in-out;
+    transition: 1s;
+}
+
+.TaskFieldsGroup {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.TaskFieldsGroup>* {
+    width: 100%;
+}
+
+.TaskTitle {
+    font-weight: bolder;
+    font-size: large;
+}
+
+.TaskStatus {
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+.TaskComplete::before{
+    position: absolute;
+    top: calc(50% - 1rem);
+    left: 50%;
+    content: "\2713";
+    font-weight: bold;
+    color: lightgreen;
+    text-shadow: 0 0 3px lightgreen;
+}
+
+.TaskField {
+    position: relative;
+    padding: 10px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.TaskDescription {
+    position: relative;
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition-timing-function: ease-in-out;
+    transition: 1s;
+}
+
+.TaskCard:hover .TaskDescription {
+    height: fit-content;
+    overflow: hidden;
+    text-overflow: none;
+    white-space: normal;
+}
