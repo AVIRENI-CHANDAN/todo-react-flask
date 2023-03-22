@@ -11,12 +11,12 @@
     box-sizing: border-box;
     margin: 5px 0;
 }
-
+/* 
 .TaskCard:hover {
     box-shadow: 0 4px 8px #4367df;
     transition-timing-function: ease-in-out;
     transition: 1s;
-}
+} */
 
 .TaskFieldsGroup {
     display: flex;
@@ -57,8 +57,10 @@
 }
 
 .TaskDescription {
+    width: 100%;
+    text-align: justify;
     position: relative;
-    height: 3em;
+    min-height: 3em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -71,4 +73,53 @@
     overflow: hidden;
     text-overflow: none;
     white-space: normal;
+}
+
+.TaskButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.TaskButtonsContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-width: 400px;
+}
+.Btn{
+    cursor: pointer;
+    padding: 10px;
+    min-width: 50px;
+    font-weight: bold;
+    border-radius: 8px;
+    outline: none;
+    border: none
+}
+.PrimaryBtn{
+    color: white;
+    background-color: #557dff;
+    transition-timing-function: ease-in;
+}
+.PrimaryBtn:hover{
+    transition: 1s;
+    box-shadow: 0 4px 8px #557dff;
+}
+.DangerBtn{
+    color: white;
+    background-color: #ff5555;
+    transition-timing-function: ease-in;
+}
+.DangerBtn:hover{
+    transition: 1s;
+    box-shadow: 0 4px 8px #ff5555;
+}
+.Warnbtn{
+    color: white;
+    background-color: #e0b61f;
+    transition-timing-function: linear;
+}
+.Warnbtn:hover{
+    transition: 1s;
+    box-shadow: 0 4px 8px #e0b61f;
 }
